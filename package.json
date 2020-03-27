@@ -1,0 +1,23 @@
+{
+  "name": "three-js-webpack",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "file-loader": "^6.0.0",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
+  },
+  "dependencies": {
+    "http-server": "^0.12.1",
+    "lodash": "^4.17.15",
+    "three": "^0.115.0"
+  }
+}
