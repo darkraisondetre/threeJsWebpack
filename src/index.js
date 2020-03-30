@@ -14,9 +14,6 @@ class Init {
         // console.log(scene.scene.children)
         scene.animate();
         let sphere1_1 = new Sphere(scene, 0, 0, 0);
-        // sphere1_1.rotate(Math.PI / 1.5);
-        sphere1_1.move(-1, 0, 1);
-        // sphere1_1.hide();
         let sphere1_2 = new Sphere(scene, 2, 0, 0);
         let sphere1_3 = new Sphere(scene, 0, 0, 2);
     }

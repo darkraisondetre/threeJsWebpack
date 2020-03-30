@@ -20,12 +20,13 @@ class SceneInit {
         // this.controls.enableZoom = false;
         this.controls.rotateSpeed = 0.6;
         this.controls.screenSpacePanning = true;
+        this.animate = this.animate.bind(this)
         window.addEventListener("resize", this.onWindowResize, false);
     }
 
     animate() {
         this.controls.update();
-        requestAnimationFrame(this.animate.bind(this));
+        requestAnimationFrame(this.animate);
         this.render();
     }
 
