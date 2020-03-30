@@ -42,8 +42,8 @@ export default class Sphere {
         this.mesh.rotateY(rotateY);
     }
 
-    move(x = 0, y = 0, z = 0) {
-        this.mesh.position.set(x, y, z)
+    move(posX = 0, posY = 0, posZ = 0) {
+        this.mesh.position.set(posX, posY, posZ)
     }
 
     get mesh() {
