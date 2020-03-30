@@ -3,24 +3,22 @@ import SceneInit from "./scene";
 import * as THREE from "three";
 import mRoom from "./res/objs/mBedroom";
 import Sphere from './sphere';
+import Button from "./buttons";
 
 let scene = new SceneInit();
-scene.init();
+let btn1 = new Button('masterRoom');
+btn1.click();
+
+let btn2 = new Button('bathRoom');
+btn2.click();
+console.log(scene.scene.children)
 scene.animate();
+scene.scene.addEventListener('change', () => {
+    console.log('change');
+    scene.animate();
+})
 
-// let sphere1 = new Sphere();
-let sphere1 = new Sphere();
-sphere1.create();
-// sphere1.mesh();
-// let meshS = sphere1.mesh();
-// scene.scene.add(meshS);
-
-// let imgPath = mRoom.key4;
-// let imgLoader = new THREE.TextureLoader().load(imgPath); 
-// let sphGeometry = new THREE.SphereGeometry(1, 32, 32);
-// let sphMaterial = new THREE.MeshBasicMaterial({
-//     map: imgLoader,
-//     side: THREE.BackSide
-// });
-// let sphMesh = new THREE.Mesh(sphGeometry, sphMaterial);
-// scene.scene.add(sphMesh);
+let sphere1_1 = new Sphere(0, 0, 0);
+let sphere1_2 = new Sphere(2, 0, 0);
+let sphere1_3 = new Sphere(0, 0, 2);
+scene.scene.add(sphere1_1.sphereMesh, sphere1_2.sphereMesh, sphere1_3.sphereMesh);

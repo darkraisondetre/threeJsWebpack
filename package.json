@@ -1,23 +1,36 @@
 {
-  "name": "three-js-webpack",
-  "version": "1.0.0",
-  "description": "",
-  "private": true,
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "file-loader": "^6.0.0",
-    "webpack": "^4.42.1",
-    "webpack-cli": "^3.3.11"
-  },
-  "dependencies": {
-    "http-server": "^0.12.1",
-    "lodash": "^4.17.15",
-    "three": "^0.115.0"
-  }
+    "name": "three-js-webpack",
+    "version": "1.0.0",
+    "description": "git clone https://github.com/darkraisondetre/threeJsWebpack.git",
+    "private": true,
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "webpack",
+        "start": "webpack-dev-server"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "file-loader": "^6.0.0",
+        "webpack": "^4.42.1",
+        "webpack-cli": "^3.3.11",
+        "webpack-dev-server": "^3.10.3"
+    },
+    "dependencies": {
+        "@tweenjs/tween.js": "^18.5.0",
+        "dev-server": "^0.1.0",
+        "http-server": "^0.12.1",
+        "lodash": "^4.17.15",
+        "three": "^0.115.0"
+    },
+    "main": "webpack.config.js",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/darkraisondetre/threeJsWebpack.git"
+    },
+    "bugs": {
+        "url": "https://github.com/darkraisondetre/threeJsWebpack/issues"
+    },
+    "homepage": "https://github.com/darkraisondetre/threeJsWebpack#readme"
 }
