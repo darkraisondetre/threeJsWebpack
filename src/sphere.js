@@ -1,10 +1,10 @@
 import * as THREE from 'three';
-import SceneInit from "./scene";
 import mRoom from "./res/objs/mBedroom";
 
 export default class Sphere {
-    constructor(posX, posY, posZ) {
-        this.preloader = document.querySelector('#loader');
+    constructor(scene, posX, posY, posZ) {
+        this.scene = scene.scene;
+        // this.preloader = document.querySelector('#loader');
         // this.preloader.style.display = 'flex';
         this.imgPath = mRoom.key1;
         this.imgLoader = new THREE.TextureLoader().load(this.imgPath);
@@ -17,7 +17,38 @@ export default class Sphere {
         this.sphereMesh.position.x = posX;
         this.sphereMesh.position.y = posY;
         this.sphereMesh.position.z = posZ;
+        this.add();
         // this.preloader.style.display = 'none';
+    }
+
+    add() {
+        this.scene.add(this.mesh);
+    }
+
+    remove() {
+        this.scene.remove(this.mesh);
+    }
+
+    hide() {
+        this.mesh.visible = false;
+    }
+
+    visible() {
+        this.mesh.visible = true;
+    }
+
+    rotate(rotateY) {
+        this.mesh.rotateY(rotateY);
+    }
+
+    // move(moveX, moveY, moveZ) {
+    //     this.mesh.translateOnAxis(moveX, moveY, moveZ);
+    // }
+
+    move(moveX, moveY, moveZ) {
+        this.mesh.translateX(moveX);
+        this.mesh.translateX(moveY);
+        this.mesh.translateX(moveZ);
     }
 
     get mesh() {

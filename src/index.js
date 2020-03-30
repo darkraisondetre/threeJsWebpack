@@ -5,20 +5,26 @@ import mRoom from "./res/objs/mBedroom";
 import Sphere from './sphere';
 import Button from "./buttons";
 
-let scene = new SceneInit();
-let btn1 = new Button('masterRoom');
-btn1.click();
+class Init {
+    constructor() {
+        let scene = new SceneInit();
+        // new Button(scene, 'masterRoom').click();
 
-let btn2 = new Button('bathRoom');
-btn2.click();
-console.log(scene.scene.children)
-scene.animate();
-scene.scene.addEventListener('change', () => {
-    console.log('change');
-    scene.animate();
-})
+        // new Button(scene, 'bathRoom').click();
+        // console.log(scene.scene.children)
+        scene.animate();
+        let sphere1_1 = new Sphere(scene, 0, 0, 0);
+        // sphere1_1.rotate(Math.PI / 1.5);
+        sphere1_1.move(-1, 0, 1);
+        // sphere1_1.hide();
+        let sphere1_2 = new Sphere(scene, 2, 0, 0);
+        let sphere1_3 = new Sphere(scene, 0, 0, 2);
+    }
+}
 
-let sphere1_1 = new Sphere(0, 0, 0);
-let sphere1_2 = new Sphere(2, 0, 0);
-let sphere1_3 = new Sphere(0, 0, 2);
-scene.scene.add(sphere1_1.sphereMesh, sphere1_2.sphereMesh, sphere1_3.sphereMesh);
+new Init();
+
+
+
+
+// scene.scene.add(sphere1_1.sphereMesh, sphere1_2.sphereMesh, sphere1_3.sphereMesh);
