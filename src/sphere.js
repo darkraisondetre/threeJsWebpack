@@ -2,15 +2,12 @@ import * as THREE from 'three';
 import mRoom from "./res/objs/mBedroom";
 
 export default class Sphere {
-    constructor(scene, posX, posY, posZ, sphGeometry, sphMaterial, sphereMesh) {
+    constructor(scene, posX, posY, posZ) {
         this.scene = scene.scene;
         // this.preloader = document.querySelector('#loader');
         // this.preloader.style.display = 'flex';
         this.imgPath = mRoom.key1;
         this.imgLoader = new THREE.TextureLoader().load(this.imgPath);
-        this.sphGeometry = sphGeometry;
-        this.sphMaterial = sphMaterial;
-        this.sphereMesh = sphereMesh;
         this.add();
         this.move(posX, posY, posZ);
         // this.preloader.style.display = 'none';
