@@ -14,6 +14,7 @@ export default class Button extends Sphere {
         this.createBtn.id = this.name;
         this.selector = document.querySelector('.buttons');
         this.selector.appendChild(this.createBtn);
+        this.pointList = document.querySelectorAll('.point');
     }
     click() {
         document.querySelector(`#${this.createBtn.id}`).addEventListener('click', () => {
@@ -23,17 +24,26 @@ export default class Button extends Sphere {
                 this.scene.remove(this.scene.children[0]);
             }
             if (this.name === 'masterRoom') {
+                this.pointList[1].style.background = 'url(./point.png)';
+                this.pointList[2].style.background = 'url(./point.png)';
+                this.pointList[0].style.background = 'url(./point-active.png)';
                 this.scene.add(this.mesh);
                 this.imgLoader = new THREE.TextureLoader().load(this.imgPath, () => {
                     return this.preloader.style.display = 'none'
                 });
             } else if (this.name === 'livingRoom') {
+                this.pointList[0].style.background = 'url(./point.png)';
+                this.pointList[2].style.background = 'url(./point.png)';
+                this.pointList[1].style.background = 'url(./point-active.png)';
                 this.imgPath = lRoom.key1;
                 this.imgLoader = new THREE.TextureLoader().load(this.imgPath, () => {
                     return this.preloader.style.display = 'none'
                 });
                 this.add();
             } else if (this.name === 'hallRoom') {
+                this.pointList[1].style.background = 'url(./point.png)';
+                this.pointList[0].style.background = 'url(./point.png)';
+                this.pointList[2].style.background = 'url(./point-active.png)';
                 console.log(this.camera)
                 this.imgPath = hRoom.key1;
                 this.imgLoader = new THREE.TextureLoader().load(this.imgPath, () => {
