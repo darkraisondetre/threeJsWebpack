@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Getting Started</title>
+    <title>THREE JS project</title>
 </head>
 <style>
     body {
@@ -21,7 +21,7 @@
     .buttons {
         width: 100%;
         display: flex;
-        justify-content: space-around;
+        justify-content: space-evenly;
         align-items: center;
         position: fixed;
         bottom: 5%;
@@ -41,14 +41,73 @@
         background: #fff url(loader.gif) no-repeat center center;
         background-size: auto;
         z-index: 999;
-        display: none;
+        display: flex;
         justify-content: center;
         align-items: center;
+    }
+    
+    .map {
+        width: 320px;
+        height: 250px;
+        background: url('map.png') no-repeat center;
+        background-size: cover;
+        position: absolute;
+        right: 2%;
+        bottom: 2%;
+        transition-duration: 0.8s;
+    }
+    
+    .map:hover {
+        width: 500px;
+        height: 450px;
+        transition-duration: 0.8s;
+    }
+    
+    .points {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .point {
+        width: 16px;
+        height: 18px;
+        position: absolute;
+        cursor: pointer;
+        background: url('./point.png') no-repeat center;
+        background-size: contain;
+    }
+    
+    .point:nth-child(1) {
+        left: 39%;
+        top: 39%;
+        background: url('./point-active.png') no-repeat center;
+    }
+    
+    .point:nth-child(2) {
+        left: 82%;
+        top: 31%;
+        background: url('./point.png') no-repeat center;
+    }
+    
+    .point:nth-child(3) {
+        left: 59%;
+        top: 37%;
+        background: url('./point.png') no-repeat center;
     }
 </style>
 
 <body>
     <div id="loader"></div>
+    <div class="map">
+        <div class="points">
+            <div class="point"></div>
+            <div class="point"></div>
+            <div class="point"></div>
+            <!-- <div class="point"></div>
+            <div class="point"></div> -->
+        </div>
+    </div>
     <div class="buttons"></div>
     <script src="bundle.js"></script>
 </body>

@@ -4,13 +4,13 @@ import mRoom from "./res/objs/mBedroom";
 export default class Sphere {
     constructor(scene, posX, posY, posZ) {
         this.scene = scene.scene;
-        // this.preloader = document.querySelector('#loader');
-        // this.preloader.style.display = 'flex';
         this.imgPath = mRoom.key1;
-        this.imgLoader = new THREE.TextureLoader().load(this.imgPath);
+        this.preloader = document.querySelector('#loader');
+        this.imgLoader = new THREE.TextureLoader().load(this.imgPath, () => {
+            return this.preloader.style.display = 'none';
+        });
         this.add();
         this.move(posX, posY, posZ);
-        // this.preloader.style.display = 'none';
     }
 
     add() {

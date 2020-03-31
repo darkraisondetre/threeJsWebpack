@@ -37,6 +37,10 @@ class SceneInit {
     onWindowResize() {
         this.camera = window.innerWidth / window.innerHeight;
     }
+
+    goTo() {
+        console.log('goTo');
+    }
 }
 
 export default SceneInit;
