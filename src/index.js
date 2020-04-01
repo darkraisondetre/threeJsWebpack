@@ -30,29 +30,7 @@ class Init {
     }
 
     mapUsability() {
-        let pointList = document.querySelectorAll('.point');
         let pointContainer = document.querySelector('.points');
-        pointContainer.style.display = 'none';
-        pointList[0].addEventListener('click', () => {
-            pointList[1].style.background = 'url(./point.png)';
-            pointList[2].style.background = 'url(./point.png)';
-            pointList[0].style.background = 'url(./point-active.png)';
-            return document.querySelector('#masterRoom').click();
-        })
-
-        pointList[1].addEventListener('click', () => {
-            pointList[0].style.background = 'url(./point.png)';
-            pointList[2].style.background = 'url(./point.png)';
-            pointList[1].style.background = 'url(./point-active.png)';
-            return document.querySelector('#livingRoom').click();
-        })
-
-        pointList[2].addEventListener('click', () => {
-            pointList[0].style.background = 'url(./point.png)';
-            pointList[1].style.background = 'url(./point.png)';
-            pointList[2].style.background = 'url(./point-active.png)';
-            return document.querySelector('#hallRoom').click();
-        })
         let active = false;
         document.querySelector('.map').addEventListener('click', () => {
             if (active === false) {

@@ -6,9 +6,8 @@ export default class Sphere {
         this.scene = scene.scene;
         this.imgPath = mRoom.key1;
         this.preloader = document.querySelector('#loader');
-        this.imgLoader = new THREE.TextureLoader().load(this.imgPath, () => {
-            return this.preloader.style.display = 'none';
-        });
+        this.preLoad(true);
+        this.imgLoader = new THREE.TextureLoader().load(this.imgPath, this.preLoad(false));
         this.add();
         this.move(posX, posY, posZ);
     }
@@ -21,7 +20,10 @@ export default class Sphere {
         });
         this.sphereMesh = new THREE.Mesh(this.sphGeometry, this.sphMaterial);
         this.scene.add(this.mesh);
+    }
 
+    preLoad(active) {
+        this.preloader.style.display = active ? 'flex' : 'none';
     }
 
     remove() {
