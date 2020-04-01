@@ -5,8 +5,8 @@ import lRoom from "./res/objs/living";
 import hRoom from './res/objs/hall';
 import * as THREE from 'three';
 export default class Button extends Sphere {
-    constructor(scene, name, camera) {
-        super(scene, camera);
+    constructor(scene, name) {
+        super(scene);
         this.name = name;
         this.createBtn = document.createElement('button');
         this.createBtn.className = 'button';
@@ -19,7 +19,6 @@ export default class Button extends Sphere {
     click() {
         document.querySelector(`#${this.createBtn.id}`).addEventListener('click', () => {
             this.preloader.style.display = 'flex';
-
             while (this.scene.children.length > 0) {
                 this.scene.remove(this.scene.children[0]);
             }
@@ -44,13 +43,11 @@ export default class Button extends Sphere {
                 this.pointList[1].style.background = 'url(./point.png)';
                 this.pointList[0].style.background = 'url(./point.png)';
                 this.pointList[2].style.background = 'url(./point-active.png)';
-                console.log(this.camera)
                 this.imgPath = hRoom.key1;
                 this.imgLoader = new THREE.TextureLoader().load(this.imgPath, () => {
                     return this.preloader.style.display = 'none'
                 });
                 this.add();
-                console.log(this.imgLoader);
             }
         })
     }

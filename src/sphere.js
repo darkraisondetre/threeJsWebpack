@@ -21,6 +21,7 @@ export default class Sphere {
         });
         this.sphereMesh = new THREE.Mesh(this.sphGeometry, this.sphMaterial);
         this.scene.add(this.mesh);
+
     }
 
     remove() {

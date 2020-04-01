@@ -17,7 +17,7 @@ class SceneInit {
         document.body.appendChild(this.renderer.domElement);
         this.controls = new OrbitControls(this.camera, this.renderer.domElement);
         this.controls.enableDamping = true;
-        // this.controls.enableZoom = false;
+        this.controls.enableZoom = false;
         this.controls.rotateSpeed = 0.6;
         this.controls.screenSpacePanning = true;
         this.animate = this.animate.bind(this)
@@ -38,9 +38,16 @@ class SceneInit {
         this.camera = window.innerWidth / window.innerHeight;
     }
 
-    goTo() {
-        console.log('goTo');
+    onButtonClick() {
+        let btnList = document.querySelectorAll('.button');
+        btnList.forEach(btn => {
+            btn.addEventListener('click', () => {
+                this.camera.position.y = 0;
+                this.camera.position.z = 0;
+            })
+        });
     }
+
 }
 
 export default SceneInit;
