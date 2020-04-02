@@ -2,35 +2,136 @@ import mRoom from "./res/objs/mBedroom";
 import lRoom from "./res/objs/living";
 import hRoom from "./res/objs/hall";
 
-
-
 const jsonObject = {
-    jsonPlacement: './base.json',
-    data: [{
-        name: 'masterRoom',
-        secName: 'one',
-        src: mRoom.key1,
-        rotatePos: Math.PI / 4,
-        buttons: [{
-            x: 0,
-            y: 0,
-            z: -4
-        }]
-    },
+  jsonPlacement: "./base.json",
+  data: [
     {
-        name: 'masterRoom',
-        secName: 'two',
-        src: mRoom.key2,
-        rotatePos: Math.PI / 4,
-        buttons: [{
-            x: 2,
-            y: 0,
-            z: 4
+      name: "masterRoom",
+      secName: "one",
+      src: mRoom.key1,
+      rotatePos: Math.PI / 4,
+      buttons: [
+        {
+          x: 0,
+          y: 0,
+          z: -4
         },
         {
             x: -1,
             y: 0,
             z: -4
-        }]
-    }]
-}
+          }
+      ]
+    },
+    {
+      name: "masterRoom",
+      secName: "two",
+      src: mRoom.key2,
+      rotatePos: Math.PI / 4,
+      buttons: [
+        {
+          x: 2,
+          y: 0,
+          z: 4
+        },
+        {
+          x: -1,
+          y: 0,
+          z: -4
+        }
+      ]
+    },
+    {
+        name: "masterRoom",
+        secName: "three",
+        src: mRoom.key3,
+        rotatePos: Math.PI / 4,
+        buttons: [
+          {
+            x: 2,
+            y: 0,
+            z: 4
+          },
+          {
+            x: -1,
+            y: 0,
+            z: -4
+          }
+        ]
+      },
+      {
+          name: "masterRoom",
+          secName: "four",
+          src: mRoom.key4,
+          rotatePos: Math.PI / 4,
+          buttons: [
+            {
+              x: 2,
+              y: 0,
+              z: 4
+            },
+            {
+              x: -1,
+              y: 0,
+              z: -4
+            }
+          ]
+        },
+        {
+            name: "masterRoom",
+            secName: "five",
+            src: mRoom.key5,
+            rotatePos: Math.PI / 4,
+            buttons: [
+              {
+                x: 2,
+                y: 0,
+                z: 4
+              },
+              {
+                x: -1,
+                y: 0,
+                z: -4
+              }
+            ]
+          },
+          {
+              name: "livingRoom",
+              secName: "one",
+              src: lRoom.key1,
+              rotatePos: Math.PI / 4,
+              buttons: [
+                {
+                  x: 2,
+                  y: 0,
+                  z: 4
+                },
+                {
+                  x: -1,
+                  y: 0,
+                  z: -4
+                }
+              ]
+            },
+            {
+                name: "hallRoom",
+                secName: "one",
+                src: hRoom.key1,
+                rotatePos: Math.PI / 4,
+                buttons: [
+                  {
+                    x: 2,
+                    y: 0,
+                    z: 4
+                  },
+                  {
+                    x: -1,
+                    y: 0,
+                    z: -4
+                  }
+                ]
+              }
+  ]
+};
+
+export default jsonObject;

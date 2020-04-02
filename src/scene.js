@@ -17,7 +17,7 @@ class SceneInit {
         document.body.appendChild(this.renderer.domElement);
         this.controls = new OrbitControls(this.camera, this.renderer.domElement);
         this.controls.enableDamping = true;
-        this.controls.enableZoom = false;
+        this.controls.enableZoom = true;
         this.controls.rotateSpeed = 0.6;
         this.controls.screenSpacePanning = true;
         this.animate = this.animate.bind(this)
@@ -42,6 +42,7 @@ class SceneInit {
         let btnList = document.querySelectorAll('.button');
         btnList.forEach(btn => {
             btn.addEventListener('click', () => {
+                this.camera.position.x = 0.0000001;
                 this.camera.position.y = 0;
                 this.camera.position.z = 0;
             })

@@ -2,9 +2,9 @@ import * as THREE from 'three';
 import mRoom from "./res/objs/mBedroom";
 
 export default class Sphere {
-    constructor(scene, posX, posY, posZ) {
+    constructor(scene, imgPath, posX, posY, posZ) {
         this.scene = scene.scene;
-        this.imgPath = mRoom.key1;
+        this.imgPath = imgPath;
         this.preloader = document.querySelector('#loader');
         this.preLoad(true);
         this.imgLoader = new THREE.TextureLoader().load(this.imgPath, this.preLoad(false));
