@@ -17,14 +17,15 @@ class Init {
   }
 
   addSpheres(scene) {
-    let sphere1_1 = new Sphere(scene, jsonObject.data[0].src, 0, 0, 0);
-    let sphere1_2 = new Sphere(scene, jsonObject.data[1].src, 2, 0, 0);
-    let sphere1_3 = new Sphere(scene, jsonObject.data[2].src, 0, 0, 2);
-    let sphere1_4 = new Sphere(scene, jsonObject.data[3].src, -2, 0, 0);
-    let sphere1_5 = new Sphere(scene, jsonObject.data[4].src, 0, 0, -2);
+      jsonObject.data.forEach(el => {
+          new Sphere(scene, el.src, el.posX, el.posY, el.posZ);
+      })
   }
 
   addButtons(scene) {
+    //   jsonObject.data.forEach(el => {
+    //       new Button
+    //   });
     let btn1 = new Button(scene, "masterRoom");
     btn1.click();
     let btn2 = new Button(scene, "livingRoom");
@@ -38,11 +39,13 @@ class Init {
     document.querySelector(".map").addEventListener("click", () => {
       if (active === false) {
         document.querySelector(".map").style =
-          "width: 100%; height: 100%; zIndex: 999; right: 0; bottom: 0";
+          "width: 100%; height: 100%; right: 0; bottom: 0";
+          document.querySelector('.buttons').style.zIndex = -1;
         return (active = true);
       } else if (active === true) {
         document.querySelector(".map").style =
-          "width: 320px; height: 250px; zIndex: unset; right: 2%; bottom: 2%";
+          "width: 320px; height: 250px; right: 2%; bottom: 10%";
+        document.querySelector('.buttons').style.zIndex = 0;
         return (active = false);
       }
     });

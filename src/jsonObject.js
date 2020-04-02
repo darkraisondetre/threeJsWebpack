@@ -10,6 +10,9 @@ const jsonObject = {
       secName: "one",
       src: mRoom.key1,
       rotatePos: Math.PI / 4,
+      posX: 0,
+      posY: 0,
+      posZ: 0,
       buttons: [
         {
           x: 0,
@@ -17,10 +20,10 @@ const jsonObject = {
           z: -4
         },
         {
-            x: -1,
-            y: 0,
-            z: -4
-          }
+          x: -1,
+          y: 0,
+          z: -4
+        }
       ]
     },
     {
@@ -28,6 +31,9 @@ const jsonObject = {
       secName: "two",
       src: mRoom.key2,
       rotatePos: Math.PI / 4,
+      posX: 2,
+      posY: 0,
+      posZ: 0,
       buttons: [
         {
           x: 2,
@@ -42,95 +48,110 @@ const jsonObject = {
       ]
     },
     {
-        name: "masterRoom",
-        secName: "three",
-        src: mRoom.key3,
-        rotatePos: Math.PI / 4,
-        buttons: [
-          {
-            x: 2,
-            y: 0,
-            z: 4
-          },
-          {
-            x: -1,
-            y: 0,
-            z: -4
-          }
-        ]
-      },
-      {
-          name: "masterRoom",
-          secName: "four",
-          src: mRoom.key4,
-          rotatePos: Math.PI / 4,
-          buttons: [
-            {
-              x: 2,
-              y: 0,
-              z: 4
-            },
-            {
-              x: -1,
-              y: 0,
-              z: -4
-            }
-          ]
+      name: "masterRoom",
+      secName: "three",
+      src: mRoom.key3,
+      rotatePos: Math.PI / 4,
+      posX: 0,
+      posY: 0,
+      posZ: 2,
+      buttons: [
+        {
+          x: 2,
+          y: 0,
+          z: 4
         },
         {
-            name: "masterRoom",
-            secName: "five",
-            src: mRoom.key5,
-            rotatePos: Math.PI / 4,
-            buttons: [
-              {
-                x: 2,
-                y: 0,
-                z: 4
-              },
-              {
-                x: -1,
-                y: 0,
-                z: -4
-              }
-            ]
-          },
-          {
-              name: "livingRoom",
-              secName: "one",
-              src: lRoom.key1,
-              rotatePos: Math.PI / 4,
-              buttons: [
-                {
-                  x: 2,
-                  y: 0,
-                  z: 4
-                },
-                {
-                  x: -1,
-                  y: 0,
-                  z: -4
-                }
-              ]
-            },
-            {
-                name: "hallRoom",
-                secName: "one",
-                src: hRoom.key1,
-                rotatePos: Math.PI / 4,
-                buttons: [
-                  {
-                    x: 2,
-                    y: 0,
-                    z: 4
-                  },
-                  {
-                    x: -1,
-                    y: 0,
-                    z: -4
-                  }
-                ]
-              }
+          x: -1,
+          y: 0,
+          z: -4
+        }
+      ]
+    },
+    {
+      name: "masterRoom",
+      secName: "four",
+      src: mRoom.key4,
+      rotatePos: Math.PI / 4,
+      posX: -2,
+      posY: 0,
+      posZ: 0,
+      buttons: [
+        {
+          x: 2,
+          y: 0,
+          z: 4
+        },
+        {
+          x: -1,
+          y: 0,
+          z: -4
+        }
+      ]
+    },
+    {
+      name: "masterRoom",
+      secName: "five",
+      src: mRoom.key5,
+      rotatePos: Math.PI / 4,
+      posX: 0,
+      posY: 0,
+      posZ: -2,
+      buttons: [
+        {
+          x: 2,
+          y: 0,
+          z: 4
+        },
+        {
+          x: -1,
+          y: 0,
+          z: -4
+        }
+      ]
+    },
+    {
+      name: "livingRoom",
+      secName: "one",
+      src: lRoom.key1,
+      rotatePos: Math.PI / 4,
+      posX: 7,
+      posY: 0,
+      posZ: 0,
+      buttons: [
+        {
+          x: 2,
+          y: 0,
+          z: 4
+        },
+        {
+          x: -1,
+          y: 0,
+          z: -4
+        }
+      ]
+    },
+    {
+      name: "hallRoom",
+      secName: "one",
+      src: hRoom.key1,
+      rotatePos: Math.PI / 4,
+      posX: 0,
+      posY: 0,
+      posZ: 7,
+      buttons: [
+        {
+          x: 2,
+          y: 0,
+          z: 4
+        },
+        {
+          x: -1,
+          y: 0,
+          z: -4
+        }
+      ]
+    }
   ]
 };
 

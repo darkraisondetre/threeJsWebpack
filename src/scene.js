@@ -42,9 +42,7 @@ class SceneInit {
         let btnList = document.querySelectorAll('.button');
         btnList.forEach(btn => {
             btn.addEventListener('click', () => {
-                this.camera.position.x = 0.0000001;
                 this.camera.position.y = 0;
-                this.camera.position.z = 0;
             })
         });
     }
