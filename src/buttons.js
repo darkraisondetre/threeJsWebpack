@@ -38,6 +38,7 @@ export default class Button extends Sphere {
         }
         if (this.name === "masterRoom") {
           pointList[0].id = "pointActive";
+          this.imgPath = jsonObject.data[0].src;
           this.imgLoader = new THREE.TextureLoader().load(this.imgPath, () => {
             return (this.preloader.style.display = "none");
           });
