@@ -6,8 +6,8 @@ export default class Sphere {
         this.scene = scene.scene;
         this.imgPath = imgPath;
         this.preloader = document.querySelector('#loader');
-        this.preLoad(true);
-        this.imgLoader = new THREE.TextureLoader().load(this.imgPath, this.preLoad(false));
+        // this.preLoad(true);
+        this.imgLoader = new THREE.TextureLoader().load(this.imgPath);
         this.add();
         this.move(posX, posY, posZ);
     }
@@ -22,9 +22,9 @@ export default class Sphere {
         this.scene.add(this.mesh);
     }
 
-    preLoad(active) {
-        this.preloader.style.display = active ? 'flex' : 'none';
-    }
+    // preLoad(active) {
+    //     this.preloader.style.display = active ? 'flex' : 'none';
+    // }
 
     remove() {
         this.scene.remove(this.mesh);

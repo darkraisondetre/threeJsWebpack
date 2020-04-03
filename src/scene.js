@@ -1,5 +1,6 @@
 import * as THREE from "three";
 import { OrbitControls } from "../node_modules/three/examples/jsm/controls/OrbitControls.js";
+import jsonObject from "./jsonObject.js";
 class SceneInit {
     constructor() {
         this.scene = new THREE.Scene();
@@ -10,7 +11,7 @@ class SceneInit {
             0.1,
             1000
         );
-        this.camera.position.set(0.0000001, 0, 0);
+        this.camera.position.set(0.0001, 0, 0);
         this.camera.lookAt(2, 0, 0);
         this.renderer = new THREE.WebGLRenderer();
         this.renderer.setSize(window.innerWidth, window.innerHeight);

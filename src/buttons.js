@@ -5,6 +5,7 @@ import lRoom from "./res/objs/living";
 import hRoom from "./res/objs/hall";
 import * as THREE from "three";
 import jsonObject from "./jsonObject";
+import mRoom from "./res/objs/mBedroom";
 
 export default class Button extends Sphere {
   constructor(scene, name) {
@@ -30,35 +31,39 @@ export default class Button extends Sphere {
         pointList.forEach(points => {
           points.id = "nonActive";
         });
+        if (this.name === "masterRoom") {
+          pointList[0].id = "pointActive";
+        } else if (this.name === "livingRoom") {
+          pointList[1].id = "pointActive";
+        } else if (this.name === "hallRoom") {
+          pointList[2].id = "pointActive";
+        }
         //инициализируем прелоадер
         this.preloader.style.display = "flex";
         //очищаем сцену
         while (this.scene.children.length > 0) {
           this.scene.remove(this.scene.children[0]);
         }
-        if (this.name === "masterRoom") {
-          pointList[0].id = "pointActive";
-          this.imgPath = jsonObject.data[0].src;
-          this.imgLoader = new THREE.TextureLoader().load(this.imgPath, () => {
-            return (this.preloader.style.display = "none");
-          });
-          this.add();
-        } else if (this.name === "livingRoom") {
-          pointList[1].id = "pointActive";
-          this.imgPath = jsonObject.data[5].src;
-          this.imgLoader = new THREE.TextureLoader().load(this.imgPath, () => {
-            return (this.preloader.style.display = "none");
-          });
-          this.add();
-        } else if (this.name === "hallRoom") {
-          pointList[2].id = "pointActive";
-          this.imgPath = jsonObject.data[6].src;
-          this.imgLoader = new THREE.TextureLoader().load(this.imgPath, () => {
-            return (this.preloader.style.display = "none");
-          });
-          this.add();
-        }
+
+        // jsonObject.data.forEach(el => {
+        //   if(el.name === this.name) {
+        //     new Sphere(this.scene, el.src, el.posX, el.posY, el.posZ).add();
+        //   }
+        // });
+
+        jsonObject.data.forEach(el => {
+          if (this.name === el.name) {
+            this.imgPath = el.src;
+            this.imgLoader = new THREE.TextureLoader().load(
+              this.imgPath,
+              () => {
+                return (this.preloader.style.display = "none");
+              }
+            );
+            this.add();
+          }
+        });
       });
-    })
+    });
   }
 }
