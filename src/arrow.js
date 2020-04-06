@@ -1,31 +1,35 @@
 import * as THREE from 'three';
+import arrowImg from '../dist/arrow.png'
+import SceneInit from './scene.js'
 
-export default class Arrow {
+export default class Arrow extends SceneInit {
     constructor(scene, posX, posY, posZ) {
+        super();
         this.scene = scene.scene;
         this.addArrow();
         this.moveArrow(posX, posY, posZ);
     }
 
     addArrow() {
-        this.arrowGeometry = new THREE.PlaneGeometry(0.024, 0.006, 2);
+        const group = new THREE.Group();
+        const arrImg = new THREE.TextureLoader().load(arrowImg);
+        this.arrowGeometry = new THREE.PlaneGeometry(0.04, 0.06);
         this.arrowMaterial = new THREE.MeshBasicMaterial({
-            color: 0xffffff,
-            side: THREE.DoubleSide
+            side: THREE.DoubleSide,
+            map: arrImg,
+            transparent: true
         });
         this.arrowMesh = new THREE.Mesh(this.arrowGeometry, this.arrowMaterial);
         this.arrowMesh.rotateX(Math.PI / 2);
-        this.arrowMesh.rotateY(Math.PI);
-        this.arrowMesh.rotateZ(-Math.PI/ 4);
-        this.scene.add(this.arrMesh);
-        this.arrowMesh2 = this.arrMesh.clone();
-        this.arrowMesh2.rotateZ(Math.PI/ 2);
-        this.scene.add(this.arrowMesh2);
+        this.arrowMesh.rotateZ(Math.PI / 2);
+        this.arrowMesh.lookAt(this.camera)
+        group.add(this.arrowMesh);
+        // group.lookAt(4, 0, 0);
+        this.scene.add(group);
     }
 
     moveArrow(posX = 0, posY = 0, posZ = 0) {
-        this.arrMesh.position.set(posX - 0.0065, posY, posZ);
-        this.arrowMesh2.position.set(posX + 0.0065, posY, posZ);
+        this.arrMesh.position.set(posX, posY, posZ);
     }
 
     get arrMesh() {

@@ -38,29 +38,18 @@ export default class Button extends Sphere {
         } else if (this.name === "hallRoom") {
           pointList[2].id = "pointActive";
         }
-        //инициализируем прелоадер
-        this.preloader.style.display = "flex";
         //очищаем сцену
         while (this.scene.children.length > 0) {
           this.scene.remove(this.scene.children[0]);
         }
 
-        // jsonObject.data.forEach(el => {
-        //   if(el.name === this.name) {
-        //     new Sphere(this.scene, el.src, el.posX, el.posY, el.posZ).add();
-        //   }
-        // });
-
         jsonObject.data.forEach(el => {
           if (this.name === el.name) {
-            this.imgPath = el.src;
-            this.imgLoader = new THREE.TextureLoader().load(
-              this.imgPath,
-              () => {
-                return (this.preloader.style.display = "none");
-              }
-            );
-            this.add();
+            console.log(this.name, el.name)
+              this.imgPath = el.src;
+              this.imgLoader= new THREE.TextureLoader().load(this.imgPath);
+              this.add();
+              this.move(el.posX, el.posY, el.posZ);            
           }
         });
       });

@@ -2,7 +2,7 @@ import mRoom from "./res/objs/mBedroom";
 import lRoom from "./res/objs/living";
 import hRoom from "./res/objs/hall";
 
-let point = document.querySelectorAll('.point');
+let point = document.querySelectorAll(".point");
 
 const jsonObject = {
   jsonPlacement: "./base.json",
@@ -19,13 +19,23 @@ const jsonObject = {
       buttons: [
         {
           x: 0,
-          y: 0,
-          z: -4
+          y: -0.07,
+          z: 0.1
         },
         {
-          x: -1,
-          y: 0,
-          z: -4
+          x: 0,
+          y: -0.07,
+          z: -0.1
+        },
+        {
+          x: 0.1,
+          y: -0.07,
+          z: 0
+        },
+        {
+          x: -0.1,
+          y: -0.07,
+          z: 0
         }
       ]
     },
@@ -39,14 +49,14 @@ const jsonObject = {
       posZ: 0,
       buttons: [
         {
-          x: 2,
-          y: 0,
-          z: 4
+          x: 0,
+          y: -0.05,
+          z: 0.14
         },
         {
-          x: -1,
-          y: 0,
-          z: -4
+          x: 0.02,
+          y: -0.05,
+          z: -0.14
         }
       ]
     },
@@ -60,14 +70,14 @@ const jsonObject = {
       posZ: 2,
       buttons: [
         {
-          x: 2,
-          y: 0,
-          z: 4
+          x: 0,
+          y: -0.05,
+          z: 0.14
         },
         {
-          x: -1,
-          y: 0,
-          z: -4
+          x: 0.02,
+          y: -0.05,
+          z: -0.14
         }
       ]
     },
@@ -81,14 +91,14 @@ const jsonObject = {
       posZ: 0,
       buttons: [
         {
-          x: 2,
-          y: 0,
-          z: 4
+          x: 0,
+          y: -0.05,
+          z: 0.14
         },
         {
-          x: -1,
-          y: 0,
-          z: -4
+          x: 0.02,
+          y: -0.05,
+          z: -0.14
         }
       ]
     },
@@ -102,14 +112,14 @@ const jsonObject = {
       posZ: -2,
       buttons: [
         {
-          x: 2,
-          y: 0,
-          z: 4
+          x: 0,
+          y: -0.05,
+          z: 0.14
         },
         {
-          x: -1,
-          y: 0,
-          z: -4
+          x: 0.02,
+          y: -0.05,
+          z: -0.14
         }
       ]
     },
@@ -118,20 +128,20 @@ const jsonObject = {
       secName: "one",
       src: lRoom.key1,
       rotatePos: Math.PI / 4,
-      posX: 7,
+      posX: 0,
       posY: 0,
       posZ: 0,
       point: point[1],
       buttons: [
         {
-          x: 2,
-          y: 0,
-          z: 4
+          x: 0,
+          y: -0.05,
+          z: 0.14
         },
         {
-          x: -1,
-          y: 0,
-          z: -4
+          x: 0.02,
+          y: -0.05,
+          z: -0.14
         }
       ]
     },
@@ -142,32 +152,43 @@ const jsonObject = {
       rotatePos: Math.PI / 4,
       posX: 0,
       posY: 0,
-      posZ: 7,
+      posZ: 0,
       point: point[2],
       buttons: [
         {
-          x: 2,
-          y: 0,
-          z: 4
+          x: 0,
+          y: -0.05,
+          z: 0.14
         },
         {
-          x: -1,
-          y: 0,
-          z: -4
+          x: 0.02,
+          y: -0.05,
+          z: -0.14
         }
       ]
     }
   ],
   buttons: [
     {
-      name: 'masterRoom'
+      name: "masterRoom"
     },
     {
-      name: 'livingRoom'
+      name: "livingRoom"
     },
     {
-      name: 'hallRoom'
+      name: "hallRoom"
     }
+  ],
+  images: [
+    mRoom.key1,
+    mRoom.key2,
+    mRoom.key3,
+    mRoom.key4,
+    mRoom.key5,
+    lRoom.key1,
+    lRoom.key2,
+    lRoom.key3,
+    hRoom.key1
   ]
 };
 
