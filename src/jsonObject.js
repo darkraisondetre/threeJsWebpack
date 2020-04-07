@@ -20,7 +20,7 @@ const jsonObject = {
         {
           x: 0,
           y: -0.07,
-          z: 0.1
+          z: 0.16
         },
         {
           x: 0,

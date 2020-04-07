@@ -22,7 +22,7 @@ export default class Arrow extends SceneInit {
         this.arrowMesh = new THREE.Mesh(this.arrowGeometry, this.arrowMaterial);
         this.arrowMesh.rotateX(Math.PI / 2);
         this.arrowMesh.rotateZ(Math.PI / 2);
-        this.arrowMesh.lookAt(this.camera)
+        // this.arrowMesh.lookAt(this.camera)
         group.add(this.arrowMesh);
         // group.lookAt(4, 0, 0);
         this.scene.add(group);
