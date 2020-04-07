@@ -31,13 +31,14 @@ export default class Button extends Sphere {
         pointList.forEach(points => {
           points.id = "nonActive";
         });
-        if (this.name === "masterRoom") {
-          pointList[0].id = "pointActive";
-        } else if (this.name === "livingRoom") {
-          pointList[1].id = "pointActive";
-        } else if (this.name === "hallRoom") {
-          pointList[2].id = "pointActive";
+        for (let i = 0; i < 7; i++) {
+          jsonObject.data.forEach(ell => {
+            if (this.name === ell.name) {
+              pointList[ell.id].id = "pointActive";
+            }
+          })
         }
+
         //очищаем сцену
         while (this.scene.children.length > 0) {
           this.scene.remove(this.scene.children[0]);

@@ -11,21 +11,21 @@ export default class Arrow extends SceneInit {
     }
 
     addArrow() {
-        const group = new THREE.Group();
+        let group = new THREE.Group();
         const arrImg = new THREE.TextureLoader().load(arrowImg);
         this.arrowGeometry = new THREE.PlaneGeometry(0.04, 0.06);
         this.arrowMaterial = new THREE.MeshBasicMaterial({
             side: THREE.DoubleSide,
             map: arrImg,
-            transparent: true
+            // transparent: true,
+            depthTest: false
         });
         this.arrowMesh = new THREE.Mesh(this.arrowGeometry, this.arrowMaterial);
-        this.arrowMesh.rotateX(Math.PI / 2);
-        this.arrowMesh.rotateZ(Math.PI / 2);
-        // this.arrowMesh.lookAt(this.camera)
-        group.add(this.arrowMesh);
-        // group.lookAt(4, 0, 0);
-        this.scene.add(group);
+        this.arrowMesh.lookAt(0,0,0)
+        this.arrowMesh.rotation.z = Math.PI / 2;
+        this.arrowMesh.rotation.x = Math.PI / 2;
+        this.scene.add(this.arrowMesh);
+        // this.scene.add(group);
     }
 
     moveArrow(posX = 0, posY = 0, posZ = 0) {

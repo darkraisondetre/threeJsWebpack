@@ -37,8 +37,8 @@ class Init {
 
   _create(scene) {
     this.addButtons(scene);
-    this.addSpheres(scene);
     this.addArrows(scene);  
+    this.addSpheres(scene);
   }
 
   addSpheres(scene) {
@@ -63,12 +63,12 @@ class Init {
 
   addArrows(scene) {
     jsonObject.data.forEach(arrow => {
-        new Arrow(
+       let arr = new Arrow(
           scene,
           arrow.buttons[0].x,
           arrow.buttons[0].y,
           arrow.buttons[0].z
-        );      
+        );
     });
   }
   mapUsability() {

@@ -6,35 +6,49 @@ class SceneInit {
     this.scene = new THREE.Scene();
     this.scene.background = new THREE.Color(0xffffff);
     this.camera = new THREE.PerspectiveCamera(
-      75,
+      85,
       window.innerWidth / window.innerHeight,
-      0.1,
+      0.01,
       1000
     );
     this.camera.position.set(0.0001, 0, 0);
-    this.camera.lookAt(2, 0, 0);
     this.renderer = new THREE.WebGLRenderer();
+    document.querySelector("canvas")
+      ? null
+      : document.body.appendChild(this.renderer.domElement);
     this.renderer.setSize(window.innerWidth, window.innerHeight);
-    document.body.appendChild(this.renderer.domElement);
     this.controls = new OrbitControls(this.camera, this.renderer.domElement);
     this.controls.enableDamping = true;
     this.controls.enableZoom = true;
     this.controls.rotateSpeed = 0.6;
-    this.controls.screenSpacePanning = true;
     this.animate = this.animate.bind(this);
     window.addEventListener("resize", this.onWindowResize, false);
     this.mouse = new THREE.Vector2();
-    this.onMouseMove();
+    // this.onMouseMove();
+    // this.onMouseDown();
+    // document.addEventListener('click', this.onMouseDown(), false)
   }
 
   animate() {
-    let raycaster = new THREE.Raycaster();
-    raycaster.setFromCamera(this.mouse, this.camera);
-    let intersects = raycaster.intersectObjects(this.scene.children);
-    // for(let i = 0; g)
+    this.onMouseDown();
     this.controls.update();
     requestAnimationFrame(this.animate);
     this.render();
+  }
+
+  onMouseDown() {
+    let raycaster = new THREE.Raycaster();
+    raycaster.setFromCamera(this.mouse, this.camera);
+    let intersects = raycaster.intersectObjects(this.scene.children);
+    intersects.forEach(el => {
+      addEventListener("click", () => {
+        if (el.object.geometry.type === "PlaneGeometry") {
+          console.log("click");
+          el.object.material.transparent = true;
+          el.object.material.color.set(0xff0000);
+        }
+      });
+    });
   }
 
   render() {
