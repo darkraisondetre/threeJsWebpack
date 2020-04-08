@@ -82,14 +82,6 @@ class SceneInit {
           }
         });
       }
-      // intersects[0].object.position.set(0,0,0);
-      // console.log(intersects[0]);
-      //     this.scene.children.forEach(el => {
-      //       el.material.opacity = 1;
-      //       if(el.name === 'Sphere') {
-      //         el.position.set(0, 0, 0);
-      //       }
-      //     })
     }
   }
 
