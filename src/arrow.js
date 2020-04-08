@@ -20,6 +20,7 @@ export default class Arrow extends SceneInit {
     });
     this.arrowMesh = new THREE.Mesh(this.arrowGeometry, this.arrowMaterial);
     this.arrowMesh.name = "Arrow";
+    this.arrowMesh.material.opacity = 0.7;
     this.scene.add(this.arrowMesh);
   }
 

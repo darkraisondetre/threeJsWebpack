@@ -73,6 +73,9 @@ class Init {
           arr.arrowMesh.lookAt(scene.camera.position);
           arr.arrowMesh.rotateX(Math.PI * 1.7);
           arr.arrowMesh.rotateZ(Math.PI / 2);
+          arr.arrowMesh.addEventListener('click', () => {
+            console.log('click')
+          })
         }
       }
     });

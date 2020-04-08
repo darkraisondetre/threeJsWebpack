@@ -1,6 +1,7 @@
 import * as THREE from "three";
 import { OrbitControls } from "../node_modules/three/examples/jsm/controls/OrbitControls.js";
 import jsonObject from "./jsonObject.js";
+import Sphere from "./sphere.js";
 class SceneInit {
   constructor() {
     this.scene = new THREE.Scene();
@@ -24,7 +25,7 @@ class SceneInit {
     this.animate = this.animate.bind(this);
     window.addEventListener("resize", this.onWindowResize, false);
     this.mouse = new THREE.Vector2();
-    document.addEventListener("click", this.onMouseMove(), false);
+    this.onMouseMove();
   }
 
   animate() {
@@ -34,25 +35,61 @@ class SceneInit {
   }
 
   onMouseMove() {
-    document.addEventListener("click", () => {
-      event.preventDefault();
-      this.mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-      this.mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
-    });
+    window.addEventListener(
+      "mouseup",
+      event => {
+        event.preventDefault();
+        this.mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+        this.mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+      },
+      false
+    );
   }
 
   onMouseDown() {
     let raycaster = new THREE.Raycaster();
     raycaster.setFromCamera(this.mouse, this.camera);
     let intersects = raycaster.intersectObjects(this.scene.children);
-    if (intersects.length > 0) {
-      for (let i = 0; i < intersects.length; i++) {
-        if (intersects[i].object.name === "Arrow") {
-          console.log(intersects[i].object.geometry.type);
-          console.log(intersects[i].object.material);
-          intersects[0].object.material.opacity = 0.5;
-        }
+    if (
+      intersects.length > 0 &&
+      intersects.some(obj => obj.object.name === "Arrow")
+    ) {
+      intersects[0].object.material.opacity = 1;
+      let interId = intersects[0].object.id;
+      console.log(interId);
+      if (interId === 19) {
+        this.scene.children.forEach(sc => {
+          if (sc.name === "Sphere" && sc.id === 54) {
+            sc.position.set(0, 0, 0);
+          }
+        });
+      } else if (interId === 27) {
+        this.scene.children.forEach(sc => {
+          if (sc.name === "Sphere" && sc.id === 52) {
+            sc.position.set(0, 0, 0);
+          }
+        });
+      } else if (interId === 35) {
+        this.scene.children.forEach(sc => {
+          if (sc.name === "Sphere" && sc.id === 55) {
+            sc.position.set(0, 0, 0);
+          }
+        });
+      } else if (interId === 43) {
+        this.scene.children.forEach(sc => {
+          if (sc.name === "Sphere" && sc.id === 53) {
+            sc.position.set(0, 0, 0);
+          }
+        });
       }
+      // intersects[0].object.position.set(0,0,0);
+      // console.log(intersects[0]);
+      //     this.scene.children.forEach(el => {
+      //       el.material.opacity = 1;
+      //       if(el.name === 'Sphere') {
+      //         el.position.set(0, 0, 0);
+      //       }
+      //     })
     }
   }
 
