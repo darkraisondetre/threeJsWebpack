@@ -17,7 +17,7 @@ export default class Sphere {
       side: THREE.BackSide
     });
     this.sphereMesh = new THREE.Mesh(this.sphGeometry, this.sphMaterial);
-    this.sphereMesh.name = 'Sphere'
+    this.sphereMesh.name = 'Sphere';
     this.scene.add(this.mesh);
   }
 

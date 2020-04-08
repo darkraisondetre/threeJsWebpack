@@ -14,9 +14,7 @@ class SceneInit {
     );
     this.camera.position.set(0.0001, 0, 0);
     this.renderer = new THREE.WebGLRenderer();
-    document.querySelector("canvas")
-      ? null
-      : document.body.appendChild(this.renderer.domElement);
+     document.body.appendChild(this.renderer.domElement);
     this.renderer.setSize(window.innerWidth, window.innerHeight);
     this.controls = new OrbitControls(this.camera, this.renderer.domElement);
     this.controls.enableDamping = true;
@@ -25,7 +23,11 @@ class SceneInit {
     this.animate = this.animate.bind(this);
     window.addEventListener("resize", this.onWindowResize, false);
     this.mouse = new THREE.Vector2();
+    this.onClick = this.onClick.bind(this);
     this.onMouseMove();
+    this.raycaster = new THREE.Raycaster();
+    this.raycaster.setFromCamera(this.mouse, this.camera);
+    document.addEventListener('click', this.onClick)
   }
 
   animate() {
@@ -34,9 +36,16 @@ class SceneInit {
     this.render();
   }
 
+  onClick() {
+    console.log(this.interId)
+    setTimeout(() => {
+      console.log(this.interId)
+    }, 0);
+  }
+
   onMouseMove() {
     window.addEventListener(
-      "mouseup",
+      "click",
       event => {
         event.preventDefault();
         this.mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
@@ -46,47 +55,19 @@ class SceneInit {
     );
   }
 
-  onMouseDown() {
-    let raycaster = new THREE.Raycaster();
-    raycaster.setFromCamera(this.mouse, this.camera);
-    let intersects = raycaster.intersectObjects(this.scene.children);
-    if (
-      intersects.length > 0 &&
-      intersects.some(obj => obj.object.name === "Arrow")
-    ) {
-      intersects[0].object.material.opacity = 1;
-      let interId = intersects[0].object.id;
-      console.log(interId);
-      if (interId === 19) {
-        this.scene.children.forEach(sc => {
-          if (sc.name === "Sphere" && sc.id === 54) {
-            sc.position.set(0, 0, 0);
-          }
-        });
-      } else if (interId === 27) {
-        this.scene.children.forEach(sc => {
-          if (sc.name === "Sphere" && sc.id === 52) {
-            sc.position.set(0, 0, 0);
-          }
-        });
-      } else if (interId === 35) {
-        this.scene.children.forEach(sc => {
-          if (sc.name === "Sphere" && sc.id === 55) {
-            sc.position.set(0, 0, 0);
-          }
-        });
-      } else if (interId === 43) {
-        this.scene.children.forEach(sc => {
-          if (sc.name === "Sphere" && sc.id === 53) {
-            sc.position.set(0, 0, 0);
-          }
-        });
-      }
+  rayCast() {
+    let intersects = this.raycaster.intersectObjects(this.scene.children);
+    console.log(intersects && intersects.length && intersects.map((find) => (find.object.name)));
+    if (intersects && intersects.length) {
+      this.interId = intersects.filter((data) => data.object.name === 'Arrow')[0];
+    }
+    else {
+      this.interId = false;
     }
   }
 
   render() {
-    this.onMouseDown();
+    this.rayCast();
     this.renderer.render(this.scene, this.camera);
   }
 

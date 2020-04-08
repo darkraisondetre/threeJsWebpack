@@ -35,9 +35,9 @@ class Init {
   }
 
   _create(scene) {
-    this.addArrows(scene);
     this.addButtons(scene);
     this.addSpheres(scene);
+    this.addArrows(scene);
   }
 
   addSpheres(scene) {
@@ -70,13 +70,14 @@ class Init {
             arrow.buttons[i].y,
             arrow.buttons[i].z
           );
-          arr.arrowMesh.lookAt(scene.camera.position);
-          arr.arrowMesh.rotateX(Math.PI * 1.7);
-          arr.arrowMesh.rotateZ(Math.PI / 2);
-          arr.arrowMesh.addEventListener('click', () => {
-            console.log('click')
-          })
+          let grp = new THREE.Group();
+          arr.arrMesh.lookAt(scene.camera.position);
+          arr.arrMesh.rotateX(Math.PI * 1.7);
+          arr.arrMesh.rotateZ(Math.PI / 2);
+          grp.add(arr.arrMesh);
+          arr.addToScene(grp);
         }
+
       }
     });
   }
