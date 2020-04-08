@@ -36,7 +36,7 @@ export default class Button extends Sphere {
             if (this.name === ell.name) {
               pointList[ell.id].id = "pointActive";
             }
-          })
+          });
         }
 
         //очищаем сцену
@@ -46,11 +46,10 @@ export default class Button extends Sphere {
 
         jsonObject.data.forEach(el => {
           if (this.name === el.name) {
-            console.log(this.name, el.name)
-              this.imgPath = el.src;
-              this.imgLoader= new THREE.TextureLoader().load(this.imgPath);
-              this.add();
-              this.move(el.posX, el.posY, el.posZ);            
+            this.imgPath = el.src;
+            this.imgLoader = new THREE.TextureLoader().load(this.imgPath);
+            this.add();
+            this.move(el.posX, el.posY, el.posZ);
           }
         });
       });

@@ -15,7 +15,6 @@ class Init {
     this.initPreload(scene);
     this.mapUsability();
     scene.onButtonClick();
-    
   }
 
   initPreload(scene) {
@@ -32,12 +31,12 @@ class Init {
   }
 
   _loadImage(url, callback) {
-    this.loader.load(url, () => this.preloader.style.display = 'none') 
+    this.loader.load(url, () => (this.preloader.style.display = "none"));
   }
 
   _create(scene) {
+    this.addArrows(scene);
     this.addButtons(scene);
-    this.addArrows(scene);  
     this.addSpheres(scene);
   }
 
@@ -55,20 +54,27 @@ class Init {
     });
     document.querySelectorAll(".button").forEach(el => {
       el.addEventListener("click", () => {
-      this.preloader.style.display = "flex";
-       return this._preload();
+        this.preloader.style.display = "flex";
+        return this._preload();
       });
     });
   }
 
   addArrows(scene) {
     jsonObject.data.forEach(arrow => {
-       let arr = new Arrow(
-          scene,
-          arrow.buttons[0].x,
-          arrow.buttons[0].y,
-          arrow.buttons[0].z
-        );
+      if (arrow.name === "masterRoom" && arrow.secName === "one") {
+        for (let i = 0; i < arrow.buttons.length; i++) {
+          let arr = new Arrow(
+            scene,
+            arrow.buttons[i].x,
+            arrow.buttons[i].y,
+            arrow.buttons[i].z
+          );
+          arr.arrowMesh.lookAt(scene.camera.position);
+          arr.arrowMesh.rotateX(Math.PI * 1.7);
+          arr.arrowMesh.rotateZ(Math.PI / 2);
+        }
+      }
     });
   }
   mapUsability() {

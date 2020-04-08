@@ -24,34 +24,40 @@ class SceneInit {
     this.animate = this.animate.bind(this);
     window.addEventListener("resize", this.onWindowResize, false);
     this.mouse = new THREE.Vector2();
-    // this.onMouseMove();
-    // this.onMouseDown();
-    // document.addEventListener('click', this.onMouseDown(), false)
+    document.addEventListener("click", this.onMouseMove(), false);
   }
 
   animate() {
-    this.onMouseDown();
     this.controls.update();
     requestAnimationFrame(this.animate);
     this.render();
+  }
+
+  onMouseMove() {
+    document.addEventListener("click", () => {
+      event.preventDefault();
+      this.mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+      this.mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+    });
   }
 
   onMouseDown() {
     let raycaster = new THREE.Raycaster();
     raycaster.setFromCamera(this.mouse, this.camera);
     let intersects = raycaster.intersectObjects(this.scene.children);
-    intersects.forEach(el => {
-      addEventListener("click", () => {
-        if (el.object.geometry.type === "PlaneGeometry") {
-          console.log("click");
-          el.object.material.transparent = true;
-          el.object.material.color.set(0xff0000);
+    if (intersects.length > 0) {
+      for (let i = 0; i < intersects.length; i++) {
+        if (intersects[i].object.name === "Arrow") {
+          console.log(intersects[i].object.geometry.type);
+          console.log(intersects[i].object.material);
+          intersects[0].object.material.opacity = 0.5;
         }
-      });
-    });
+      }
+    }
   }
 
   render() {
+    this.onMouseDown();
     this.renderer.render(this.scene, this.camera);
   }
 
@@ -67,13 +73,5 @@ class SceneInit {
       });
     });
   }
-
-  onMouseMove() {
-    document.body.addEventListener("mousemove", event => {
-      this.mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-      this.mouse.y = (event.clientY / window.innerHeight) * 2 + 1;
-    });
-  }
 }
-
 export default SceneInit;
