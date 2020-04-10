@@ -1,14 +1,9 @@
 import Sphere from "./sphere";
-import SceneInit from "./scene";
-import TWEEN from "@tweenjs/tween.js";
-import lRoom from "./res/objs/living";
-import hRoom from "./res/objs/hall";
 import * as THREE from "three";
 import jsonObject from "./jsonObject";
-import mRoom from "./res/objs/mBedroom";
 
-export default class Button extends Sphere {
-  constructor(scene, name) {
+export default class Button extends Sphere{
+  constructor(scene, name){
     super(scene);
     //create btns
     this.name = name;
@@ -40,7 +35,7 @@ export default class Button extends Sphere {
         }
 
         //очищаем сцену
-        while (this.scene.children.length > 0) {
+        while (this.scene.children.length) {
           this.scene.remove(this.scene.children[0]);
         }
 

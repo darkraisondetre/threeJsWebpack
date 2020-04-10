@@ -12,9 +12,9 @@ class Init {
     this.preloader = document.querySelector("#loader");
     let scene = new SceneInit();
     scene.animate();
+    scene.onButtonClick();
     this.initPreload(scene);
     this.mapUsability();
-    scene.onButtonClick();
   }
 
   initPreload(scene) {
@@ -36,8 +36,25 @@ class Init {
 
   _create(scene) {
     this.addButtons(scene);
-    this.addSpheres(scene);
     this.addArrows(scene);
+    this.addSpheres(scene);
+  }
+
+  addArrows(scene) {
+    jsonObject.data.forEach(arrow => {
+      for (let i = 0; i < arrow.buttons.length; i++) {
+        if (arrow.name === "masterRoom" && arrow.secName === "one") {
+          let arr = new Arrow(
+            scene,
+            arrow.buttons[i].x,
+            arrow.buttons[i].y,
+            arrow.buttons[i].z
+          );
+          arr.look();
+          arr.addToScene();
+          }
+        }
+    });
   }
 
   addSpheres(scene) {
@@ -60,27 +77,7 @@ class Init {
     });
   }
 
-  addArrows(scene) {
-    jsonObject.data.forEach(arrow => {
-      if (arrow.name === "masterRoom" && arrow.secName === "one") {
-        for (let i = 0; i < arrow.buttons.length; i++) {
-          let arr = new Arrow(
-            scene,
-            arrow.buttons[i].x,
-            arrow.buttons[i].y,
-            arrow.buttons[i].z
-          );
-          let grp = new THREE.Group();
-          arr.arrMesh.lookAt(scene.camera.position);
-          arr.arrMesh.rotateX(Math.PI * 1.7);
-          arr.arrMesh.rotateZ(Math.PI / 2);
-          grp.add(arr.arrMesh);
-          arr.addToScene(grp);
-        }
-
-      }
-    });
-  }
+  
   mapUsability() {
     let active = false;
     document.querySelector(".map").addEventListener("click", () => {

@@ -14,6 +14,7 @@ const jsonObject = {
     {
       name: "masterRoom",
       id: 0,
+      secId: 0,
       secName: "one",
       src: mRoom.key1,
       rotatePos: Math.PI / 4,
@@ -23,23 +24,27 @@ const jsonObject = {
       point: point[0],
       buttons: [
         {
+          bId: 0,
           x: 0,
-          y: -0.07,
-          z: 0.1
+          y: -0.01,
+          z: 0.4
         },
         {
+          bId: 1,
           x: 0,
-          y: -0.07,
-          z: -0.1
+          y: -0.01,
+          z: -0.4
         },
         {
-          x: 0.1,
-          y: -0.07,
+          bId: 2,
+          x: 0.4,
+          y: -0.01,
           z: 0
         },
         {
-          x: -0.1,
-          y: -0.07,
+          bId: 3,
+          x: -0.4,
+          y: -0.01,
           z: 0
         }
       ]
@@ -47,10 +52,11 @@ const jsonObject = {
     {
       name: "masterRoom",
       id: 0,
+      secId: 1,
       secName: "two",
       src: mRoom.key2,
       rotatePos: Math.PI / 4,
-      posX: 2,
+      posX: 5,
       posY: 0,
       posZ: 0,
       buttons: [
@@ -69,12 +75,13 @@ const jsonObject = {
     {
       name: "masterRoom",
       id: 0,
+      secId: 2,
       secName: "three",
       src: mRoom.key3,
       rotatePos: Math.PI / 4,
       posX: 0,
       posY: 0,
-      posZ: 2,
+      posZ: 5,
       buttons: [
         {
           x: 0,
@@ -91,10 +98,11 @@ const jsonObject = {
     {
       name: "masterRoom",
       id: 0,
+      secId: 3,
       secName: "four",
       src: mRoom.key4,
       rotatePos: Math.PI / 4,
-      posX: -2,
+      posX: -5,
       posY: 0,
       posZ: 0,
       buttons: [
@@ -113,12 +121,13 @@ const jsonObject = {
     {
       name: "masterRoom",
       id: 0,
+      secId: 4,
       secName: "five",
       src: mRoom.key5,
       rotatePos: Math.PI / 4,
       posX: 0,
       posY: 0,
-      posZ: -2,
+      posZ: -5,
       buttons: [
         {
           x: 0,

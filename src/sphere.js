@@ -8,17 +8,17 @@ export default class Sphere {
     this.imgLoader = new THREE.TextureLoader().load(this.imgPath);
     this.add();
     this.move(posX, posY, posZ);
+    this.scene.add(this.mesh);
   }
 
   add() {
-    this.sphGeometry = new THREE.SphereGeometry(1, 32, 32);
+    this.sphGeometry = new THREE.SphereGeometry(2, 32, 32);
     this.sphMaterial = new THREE.MeshBasicMaterial({
       map: this.imgLoader,
       side: THREE.BackSide
     });
     this.sphereMesh = new THREE.Mesh(this.sphGeometry, this.sphMaterial);
     this.sphereMesh.name = 'Sphere';
-    this.scene.add(this.mesh);
   }
 
   remove() {
